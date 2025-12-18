@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng tính tuổi</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎂 Ứng dụng Tính Tuổi</h1>
+
+        <form method="POST">
+            <label>Chọn năm sinh:</label>
+            <input
+                type="number"
+                name="birth_year"
+                min="1950"
+                max="2025"
+                placeholder="Nhập năm sinh (1950 → nay)"
+                required
+            >
+            <button type="submit">Tính tuổi</button>
+        </form>
+
+        {% if age is not none %}
+            <div class="result">
+                👉 Tuổi của bạn là: <strong>{{ age }}</strong>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
